@@ -16,8 +16,8 @@ export class MyApp {
   activePage: any;
 
   // login:
-  login_username = "Michael Liu";
-  login_user_email = "lxieyang@cmu.edu"
+  login_username: any;
+  login_user_email: any;
 
   pages: Array<{title: string, component: any}>;
 
@@ -31,6 +31,10 @@ export class MyApp {
     ];
 
     this.activePage = this.pages[0];
+
+    // login info
+    this.login_username = "Michael Liu";
+    this.login_user_email = "lxieyang@cmu.edu";
 
   }
 
