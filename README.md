@@ -1,26 +1,97 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Showcase - a practical guide on how to do a side menu app using ionic 2
 
-## How to use this template
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## Components
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+### Highlight menu item
 
-### With the Ionic CLI:
+Follow the tutorial [here](https://youtu.be/zHlI_j7Veyg).
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+### Prevent white screen after splash screen
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start mySideMenu sidemenu
+Add the following line to your `config.xml` file:
+
+```xml
+<preference name="AutoHideSplashScreen" value="false" />
 ```
 
-Then, to run it, cd into `mySideMenu` and run:
+### Image viewer
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+Follow the link [here](https://github.com/Riron/ionic-img-viewer).
+
+Basically, run the following command:
+
+```sh
+$ npm install --save ionic-img-viewer
 ```
 
-Substitute ios for android if not on a Mac.
+Then, for ionic 2.x or up:
 
+```typescript
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
+@NgModule({
+  imports: [
+    IonicImageViewerModule
+  ]
+})
+export class AppModule {}
+```
+
+To use:
+
+```html
+<img src="IMAGE_URL" imageViewer />
+```
+
+### In app browser
+
+Follow the link in the [doc](https://ionicframework.com/docs/native/in-app-browser/).
+
+To install:
+
+```sh
+$ ionic cordova plugin add cordova-plugin-inappbrowser
+$ npm install --save @ionic-native/in-app-browser
+```
+
+To add the plugin to your app's module:
+
+```typescript
+...
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+...
+
+@NgModule({
+  ...
+
+  providers: [
+    ...
+    InAppBrowser
+    ...
+  ]
+  ...
+})
+export class AppModule { }
+```
+
+To use:
+
+```typescript
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+export class ContactPage {
+
+  constructor(public navCtrl: NavController,
+    private iab: InAppBrowser) {
+  }
+
+  showFacebook() {
+    const browser = this.iab.create("https://www.facebook.com/profile.php?id=100000519299083");
+    browser.show();
+  }
+  
+}
+```
