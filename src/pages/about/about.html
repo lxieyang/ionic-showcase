@@ -4,60 +4,114 @@
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
     <ion-title>About</ion-title>
+    
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow me on:</ion-list-header>
+  <h1 padding>Why Nesuku</h1>
+  <ion-item color="light">
+    <ion-label>
+      {{ role }}
+    </ion-label>
+    <ion-toggle [(checked)]="is_teacher" (ionChange)="toggleLoggedInRole()"></ion-toggle>
+  </ion-item>
 
-    <ion-item (click)="showFacebook()">
-      <ion-icon name="logo-facebook" item-left></ion-icon>
-      @Xieyang Liu
-    </ion-item>
-    <ion-item (click)="showInstagram()">
-      <ion-icon name="camera" item-left></ion-icon>
-      @xieyangl
-    </ion-item>
-    <ion-item (click)="showGithub()">
-      <ion-icon name="logo-github" item-left></ion-icon>
-      @lxieyang
-    </ion-item>
-    <ion-item (click)="showPersonalWebsite()">
-      <ion-icon name="planet" item-left></ion-icon>
-      lxieyang.github.io
-    </ion-item>
-  </ion-list>
+  <div name="student-about" *ngIf="is_teacher == false">
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="cart"></ion-icon> &nbsp;&nbsp; Convenience
+      </ion-card-header>
+      <ion-card-content>
+        <strong>No more long commutes</strong> to lessons or making sure you and your teacher have an optimal place to meet. Take a lesson from the comfort of your own home.
+      </ion-card-content>
+    </ion-card>
 
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="options"></ion-icon> &nbsp;&nbsp; Flexibility
+      </ion-card-header>
+      <ion-card-content>
+        Nesuku is <strong>wherever you want</strong>, <strong>whenever you want</strong>. Schedule a lesson at your own convenience with the teacher that works best for you.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="globe"></ion-icon> &nbsp;&nbsp; Global Connection
+      </ion-card-header>
+      <ion-card-content>
+        Nesuku's teachers and students span multiple continents and countries. Opening a door to Nesuku means opening <strong>a door to a truly international world</strong>.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="contacts"></ion-icon> &nbsp;&nbsp; Customization
+      </ion-card-header>
+      <ion-card-content>
+        All of our teachers will <strong>personalize the lessons</strong> towards your goals and your learning style.
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <div name="teacher-about" *ngIf="is_teacher == true">
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="cart"></ion-icon> &nbsp;&nbsp; Convenience
+      </ion-card-header>
+      <ion-card-content>
+        <strong>No more long commutes</strong> to lessons or making sure you and your student have an optimal place to meet. Conduct a lesson from the comfort of your own home.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="options"></ion-icon> &nbsp;&nbsp; Flexibility
+      </ion-card-header>
+      <ion-card-content>
+        Nesuku is <strong>wherever you want</strong>, <strong>whenever you want</strong>. Set your own schedule and conducts lessons at your own convenience with students that fit your schedule.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="globe"></ion-icon> &nbsp;&nbsp; Global Connection
+      </ion-card-header>
+      <ion-card-content>
+        Nesuku's teachers and students span multiple continents and countries. Opening a door to Nesuku means opening <strong>a door to a truly international world</strong>.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="contacts"></ion-icon> &nbsp;&nbsp; Customization
+      </ion-card-header>
+      <ion-card-content>
+        You have <strong>full control over your own teaching style and methodology</strong>. Show off your own way of teaching.
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <h1 padding>Help & Feedback</h1>
   <ion-card>
-    <ion-item text-wrap>
-      <ion-avatar item-left>
-        <img src="assets/img/lxieyang-avatar.jpg">
-      </ion-avatar>
-      <h2>Xieyang (Michael) Liu</h2>
-      <p>There ain't now way to hide your lyin' eyes.</p>
-    </ion-item>
+    <ion-card-content color="light">
+      <ion-list>
+        <ion-item (click)="showGettingStarted()">
+          <ion-icon name="speedometer" item-left></ion-icon>
+          Getting Started
+        </ion-item>
 
-    <img src="assets/img/lxieyang-run-like-forest.jpg" imageViewer>
-
-    <ion-card-content>
-      <ion-item text-wrap>
-        <p>
-          <strong>Carnegie Mellon University</strong><br>
-          <strong>Human-Computer Interaction Institute</strong>
-        </p>
-        <ion-avatar item-right>
-          <img src="assets/img/cmu-logo.png">
-        </ion-avatar>
-      </ion-item>
-      <p padding>
-        5000 Forbes Ave <br>
-        Pittsburgh, PA 15213 <br>
-        <strong>P:</strong> (734) 741-3585<br>
-        <strong>E:</strong> lxieyang@cmu.edu
-      </p>
+        <ion-item (click)="sendFeedback()">
+          <ion-icon name="send" item-left></ion-icon>
+          Send feedback
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
+
 
 </ion-content>
 

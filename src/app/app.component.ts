@@ -3,9 +3,13 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Storage } from '@ionic/storage';
+
 import { HomePage } from '../pages/home/home';
 import { CardsPage } from '../pages/cards/cards';
 import { AboutPage } from './../pages/about/about';
+
+import { UserData } from '../providers/user-data';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +17,7 @@ import { AboutPage } from './../pages/about/about';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = HomePage;    // change !
   activePage: any;
 
   // login:
@@ -26,7 +30,13 @@ export class MyApp {
   utility_pages: Array<{title: string, component: any, icon: any}>;
 
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
+    public userData: UserData,
+    private storage: Storage) {
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -58,6 +68,11 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.storage.ready().then(() => {
+        // this.userData.setIsTeacher(false);
+        this.storage.set('is_teacher', false);
+      });
     });
   }
 
