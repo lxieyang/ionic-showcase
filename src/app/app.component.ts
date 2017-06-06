@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { CardsPage } from '../pages/cards/cards';
+import { AboutPage } from './../pages/about/about';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,18 +20,38 @@ export class MyApp {
   login_username: any;
   login_user_email: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
+
+  file_pages: Array<{title: string, component: any, icon: any}>;
+  utility_pages: Array<{title: string, component: any, icon: any}>;
+
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Cards', component: CardsPage }
+      { title: 'All Files', component: HomePage, icon: 'document' },
+      { title: 'Shared with me', component: HomePage, icon: 'people' },
+      { title: 'Recent', component: HomePage, icon: 'time' },
+      { title: 'Messages', component: CardsPage, icon: 'chatbubbles' },
+      { title: 'Settings', component: CardsPage, icon: 'settings' }
     ];
 
-    this.activePage = this.pages[0];
+    this.file_pages = [
+      { title: 'All Files', component: HomePage, icon: 'document' },
+      { title: 'Shared with me', component: HomePage, icon: 'people' },
+      { title: 'Recent', component: HomePage, icon: 'time' },
+      { title: 'Trash', component: HomePage, icon: 'time' },
+    ];
+
+    this.utility_pages = [
+      { title: 'Messages', component: CardsPage, icon: 'chatbubbles' },
+      { title: 'Settings', component: CardsPage, icon: 'settings' },
+      { title: 'About', component: AboutPage, icon: 'stats' }
+    ];
+
+    this.activePage = this.file_pages[0];
 
     // login info
     this.login_username = "Michael Liu";

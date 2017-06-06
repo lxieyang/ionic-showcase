@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>
+    <ion-title>About</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Follow me on:</ion-list-header>
+
+    <ion-item (click)="showFacebook()">
+      <ion-icon name="logo-facebook" item-left></ion-icon>
+      @Xieyang Liu
+    </ion-item>
+    <ion-item (click)="showInstagram()">
+      <ion-icon name="camera" item-left></ion-icon>
+      @xieyangl
+    </ion-item>
+    <ion-item (click)="showGithub()">
+      <ion-icon name="logo-github" item-left></ion-icon>
+      @lxieyang
+    </ion-item>
+    <ion-item (click)="showPersonalWebsite()">
+      <ion-icon name="planet" item-left></ion-icon>
+      lxieyang.github.io
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-item text-wrap>
+      <ion-avatar item-left>
+        <img src="assets/img/lxieyang-avatar.jpg">
+      </ion-avatar>
+      <h2>Xieyang (Michael) Liu</h2>
+      <p>There ain't now way to hide your lyin' eyes.</p>
+    </ion-item>
+
+    <img src="assets/img/lxieyang-run-like-forest.jpg" imageViewer>
+
+    <ion-card-content>
+      <ion-item text-wrap>
+        <p>
+          <strong>Carnegie Mellon University</strong><br>
+          <strong>Human-Computer Interaction Institute</strong>
+        </p>
+        <ion-avatar item-right>
+          <img src="assets/img/cmu-logo.png">
+        </ion-avatar>
+      </ion-item>
+      <p padding>
+        5000 Forbes Ave <br>
+        Pittsburgh, PA 15213 <br>
+        <strong>P:</strong> (734) 741-3585<br>
+        <strong>E:</strong> lxieyang@cmu.edu
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

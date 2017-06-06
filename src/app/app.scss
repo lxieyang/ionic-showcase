@@ -63,20 +63,21 @@ ion-menu {
     }
 
     .login-avatar { 
-        width: 60%; 
+        width: 45%; 
         // border: 2px solid #fff;
         border-radius: 50%;
-        box-shadow: 0 0 10px gray;
+        box-shadow: 0 0 5px gray;
         display: inline-block;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 1em;
+        margin-top: 10px;
         margin-bottom: 0.1em;
     }
 
     .login-info {
         line-height: 1.5em;
         // text-shadow: 1px 0px lightgray;
+        margin-bottom: 0px;
     }
 
     .company-logo {
@@ -108,6 +109,10 @@ ion-menu {
 
     .menu-content-background {
         // background-color: map-get($colors, nesuku-primary)
+        font-size: 0.5em !important;
     }
 }
 
+$item-ios-divider-padding: 0px;
+$item-md-divider-padding: 0px;
+$item-wp-divider-padding: 0px;

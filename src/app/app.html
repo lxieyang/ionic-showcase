@@ -54,11 +54,28 @@
   </ion-header>
 
   <ion-content class="menu-content-background">
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
-        {{p.title}}
+    
+    <ion-item-group>
+      <button menuClose ion-item *ngFor="let p of file_pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon> &nbsp;&nbsp; {{p.title}}
       </button>
-    </ion-list>
+      <ion-item-divider color="white"></ion-item-divider>
+    </ion-item-group>
+
+    <ion-item-group>
+      <button menuClose ion-item *ngFor="let p of utility_pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon> &nbsp;&nbsp; {{p.title}}
+      </button>
+      <ion-item-divider color="white"></ion-item-divider>
+    </ion-item-group>
+
+
+    <ion-item-group>
+      <!-- LOG OUT -->
+      <button menuClose ion-item> <!--  (click)="logout_user" -->
+        <ion-icon name="log-out"></ion-icon> &nbsp;&nbsp; Log out
+      </button>
+    </ion-item-group>
   </ion-content>
 
 </ion-menu>
