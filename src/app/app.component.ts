@@ -20,7 +20,7 @@ export class MyApp {
   login_username: any;
   login_user_email: any;
 
-  pages: Array<{title: string, component: any, icon: any}>;
+  // pages: Array<{title: string, component: any, icon: any}>;
 
   file_pages: Array<{title: string, component: any, icon: any}>;
   utility_pages: Array<{title: string, component: any, icon: any}>;
@@ -30,22 +30,15 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'All Files', component: HomePage, icon: 'document' },
-      { title: 'Shared with me', component: HomePage, icon: 'people' },
-      { title: 'Recent', component: HomePage, icon: 'time' },
-      { title: 'Messages', component: CardsPage, icon: 'chatbubbles' },
-      { title: 'Settings', component: CardsPage, icon: 'settings' }
-    ];
-
     this.file_pages = [
       { title: 'All Files', component: HomePage, icon: 'document' },
       { title: 'Shared with me', component: HomePage, icon: 'people' },
       { title: 'Recent', component: HomePage, icon: 'time' },
-      { title: 'Trash', component: HomePage, icon: 'time' },
+      { title: 'Trash', component: HomePage, icon: 'trash' },
     ];
 
     this.utility_pages = [
+      { title: 'Notifications', component: CardsPage, icon: 'notifications' },
       { title: 'Messages', component: CardsPage, icon: 'chatbubbles' },
       { title: 'Settings', component: CardsPage, icon: 'settings' },
       { title: 'About', component: AboutPage, icon: 'stats' }
