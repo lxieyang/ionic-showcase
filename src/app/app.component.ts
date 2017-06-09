@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { CardsPage } from '../pages/cards/cards';
 import { AboutPage } from './../pages/about/about';
+import { Splash } from '../pages/splash/splash';
 
 import { UserData } from '../providers/user-data';
 
@@ -34,10 +35,25 @@ export class MyApp {
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
+    modalCtrl: ModalController,
     public userData: UserData,
     private storage: Storage) {
 
-    this.initializeApp();
+    // this.initializeApp();
+
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      // this.splashScreen.hide();
+      let splash = modalCtrl.create(Splash);
+      splash.present();
+
+      this.storage.ready().then(() => {
+        // this.userData.setIsTeacher(false);
+        this.storage.set('is_teacher', false);
+      });
+    });
 
     // used for an example of ngFor and navigation
     this.file_pages = [
@@ -62,19 +78,21 @@ export class MyApp {
 
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+  // initializeApp() {
+  //   this.platform.ready().then(() => {
+  //     // Okay, so the platform is ready and our plugins are available.
+  //     // Here you can do any higher level native things you might need.
+  //     this.statusBar.styleDefault();
+  //     // this.splashScreen.hide();
+  //     let splash = modalCtrl.create(Splash);
+  //     splash.present();
 
-      this.storage.ready().then(() => {
-        // this.userData.setIsTeacher(false);
-        this.storage.set('is_teacher', false);
-      });
-    });
-  }
+  //     this.storage.ready().then(() => {
+  //       // this.userData.setIsTeacher(false);
+  //       this.storage.set('is_teacher', false);
+  //     });
+  //   });
+  // }
 
   openPage(page) {
     // Reset the content nav to have just this page
