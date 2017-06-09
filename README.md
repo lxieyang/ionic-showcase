@@ -95,3 +95,14 @@ export class ContactPage {
   
 }
 ```
+
+
+## Tricks
+
+### Splash Screen Spinner
+
+To control the appearnace of the splash screen spinner, add the following line to your `config.xml` file:
+
+```xml
+<preference name="ShowSplashScreenSpinner" value="false"/>
+```
