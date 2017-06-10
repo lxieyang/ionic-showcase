@@ -332,7 +332,7 @@ export class HomePage {
                 file: input_file
               });
             } else if (input_file.type == "document") {
-              this.navCtrl.push(FileDetail, {
+              this.navCtrl.push(FileEdit, {
                 file: input_file
               });
             } else {
