@@ -92,7 +92,7 @@ export class FileFilter {
 
     for(var i = 1; i <= 3; i++) {
       this.lessons.push({
-        name: "Adv. Japanese | Lesson  ",
+        name: "Japanese | Lesson  ",
         badge: "jp",
         idx: i,
         isChecked: true

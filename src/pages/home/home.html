@@ -9,11 +9,11 @@
     </ion-title>
     
     <ion-buttons end>
-      <button ion-button large (click)="searchTapped($event)">
+      <button ion-button large style="font-size: 1.4em;" (click)="searchTapped($event)" >
         <ion-icon name="search" color="dark"></ion-icon>
       </button>
       &nbsp;&nbsp;
-      <button ion-button large (click)="presentFileFilter()">
+      <button ion-button large style="font-size: 1.4em;" (click)="presentFileFilter()">
         <ion-icon name="md-options" color="dark"></ion-icon>
       </button>
       &nbsp;&nbsp;
@@ -28,11 +28,11 @@
 
   <!-- Real floating action button, fixed. It will not scroll with the content -->
   <ion-fab right bottom>
-    <button ion-fab color="nesuku-logo-color1"><ion-icon name="md-add"></ion-icon></button>
+    <button class="ion-fab-root-btn" ion-fab color="nesuku-logo-color1"><ion-icon name="md-add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab><ion-icon name="microphone"></ion-icon></button>
+      <button class="ion-fab-child-btn" ion-fab><ion-icon name="microphone"></ion-icon></button>
 
-      <button ion-fab><ion-icon name="document"></ion-icon></button>
+      <button class="ion-fab-child-btn" ion-fab><ion-icon name="document"></ion-icon></button>
 
     </ion-fab-list>
   </ion-fab>
