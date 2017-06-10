@@ -18,7 +18,11 @@ export class FileEdit {
     public actionSheetCtrl: ActionSheetController,
     public modalCtrl: ModalController,
     public viewCtrl: ViewController) {
-      // this.file = navParams.get('file');
+      let file = navParams.get('file');
+      console.log("haha file: " + file);
+      if (file != undefined) {
+        this.filename = file.name;
+      }
       
   }
 

@@ -9,7 +9,7 @@ export class AudioEdit {
 
   // file: any;
   filename: any;
-  is_recording: boolean;
+  is_recording: boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -18,8 +18,13 @@ export class AudioEdit {
     public actionSheetCtrl: ActionSheetController,
     public modalCtrl: ModalController,
     public viewCtrl: ViewController) {
-      // this.file = navParams.get('file');
-      this.is_recording = false;
+      let file = navParams.get('file');
+      console.log("haha audio: " + file);
+      if (file != undefined) {
+        this.filename = file.name;
+      }
+      
+      // this.is_recording = false;
   }
 
   
