@@ -106,3 +106,14 @@ To control the appearnace of the splash screen spinner, add the following line t
 ```xml
 <preference name="ShowSplashScreenSpinner" value="false"/>
 ```
+
+### Change App name
+
+Note that on iOS, you are not allowed to dynamically change the app name, you have to run the following command after you changed the app name in `config.xml`:
+
+```sh
+$ cordova plugin save
+$ cordova platform rm ios
+$ cordova platform add ios
+```
+

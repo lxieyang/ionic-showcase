@@ -7,6 +7,11 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CardsPage } from '../pages/cards/cards';
 import { AboutPage } from '../pages/about/about';
+import { SearchDetail } from '../pages/search-detail/search-detail';
+import { FileDetail } from '../pages/file-detail/file-detail';
+import { FileFilter } from '../pages/file-filter/file-filter';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { SettingsPage } from '../pages/settings/settings';
 import { Splash } from '../pages/splash/splash';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -23,6 +28,11 @@ import { EmailComposer } from '@ionic-native/email-composer';
     HomePage,
     CardsPage,
     AboutPage,
+    SearchDetail,
+    FileDetail,
+    FileFilter,
+    NotificationsPage,
+    SettingsPage,
     Splash
   ],
   imports: [
@@ -36,6 +46,11 @@ import { EmailComposer } from '@ionic-native/email-composer';
     HomePage,
     CardsPage,
     AboutPage,
+    SearchDetail,
+    FileDetail,
+    FileFilter,
+    NotificationsPage,
+    SettingsPage,
     Splash
   ],
   providers: [

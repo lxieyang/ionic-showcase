@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button (click)="resetFilters()">Reset</button>&nbsp;&nbsp;
+    </ion-buttons>
+
+    <ion-title>
+      Filter Files
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="applyFilters()" strong>Done</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <!-- File Type filter -->
+  <ion-list>
+    <ion-list-header>File Type</ion-list-header>
+
+    <ion-item *ngFor="let type of file_types">
+      <ion-toggle [(ngModel)]="type.isChecked" color="secondary"></ion-toggle>
+      <ion-label>{{type.name}}</ion-label>
+      <ion-icon name="{{type.icon}}" color="nesuku-logo-color1" item-start></ion-icon>      
+    </ion-item>
+  </ion-list>
+  <br>
+
+
+  <!-- People filter -->
+  <ion-list>
+    <ion-list-header>People</ion-list-header>
+
+    <ion-item *ngFor="let person of people">
+      <ion-toggle [(ngModel)]="person.isChecked" color="secondary"></ion-toggle>
+      <ion-label>{{person.name}}</ion-label>
+      <ion-avatar *ngIf="person.avatar" item-start>
+        <img src="{{person.avatar}}" alt="avatar">
+      </ion-avatar>    
+      <ion-icon *ngIf="!person.avatar" name="person" item-start></ion-icon>
+    </ion-item>
+  </ion-list>
+  <br>
+
+
+
+  <!-- Lesson filter -->
+  <ion-list>
+    <ion-list-header>Lessons</ion-list-header>
+
+    <ion-item *ngFor="let lesson of lessons">
+      <ion-toggle [(ngModel)]="lesson.isChecked" color="secondary"></ion-toggle>
+      <ion-label style="font-size: 0.90em;">{{lesson.name}}<ion-badge>{{lesson.idx}}</ion-badge></ion-label>
+      <ion-avatar item-start>
+        <img src="assets/img/flags/1x1/{{lesson.badge}}.svg" alt="">
+      </ion-avatar>    
+    </ion-item>
+  </ion-list>
+  <br>
+
+
+
+
+  <!--<ion-list>
+    <button ion-item (click)="resetFilters()" detail-none class="reset-filters">
+      Reset All Filters
+    </button>
+  </ion-list>-->
+
+</ion-content>

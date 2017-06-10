@@ -8,6 +8,8 @@ import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { CardsPage } from '../pages/cards/cards';
 import { AboutPage } from './../pages/about/about';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { SettingsPage } from '../pages/settings/settings';
 import { Splash } from '../pages/splash/splash';
 
 import { UserData } from '../providers/user-data';
@@ -41,20 +43,6 @@ export class MyApp {
 
     // this.initializeApp();
 
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      // this.splashScreen.hide();
-      let splash = modalCtrl.create(Splash);
-      splash.present();
-
-      this.storage.ready().then(() => {
-        // this.userData.setIsTeacher(false);
-        this.storage.set('is_teacher', false);
-      });
-    });
-
     // used for an example of ngFor and navigation
     this.file_pages = [
       { title: 'All Files', component: HomePage, icon: 'document' },
@@ -64,11 +52,30 @@ export class MyApp {
     ];
 
     this.utility_pages = [
-      { title: 'Notifications', component: CardsPage, icon: 'notifications' },
+      { title: 'Notifications', component: NotificationsPage, icon: 'notifications' },
       { title: 'Messages', component: CardsPage, icon: 'chatbubbles' },
-      { title: 'Settings', component: CardsPage, icon: 'settings' },
+      { title: 'Settings', component: SettingsPage, icon: 'settings' },
       { title: 'About', component: AboutPage, icon: 'stats' }
     ];
+
+
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      // this.splashScreen.hide();
+      let splash = modalCtrl.create(Splash);
+      splash.present();
+
+      this.openPage(this.file_pages[0]);
+
+      this.storage.ready().then(() => {
+        // this.userData.setIsTeacher(false);
+        this.storage.set('is_teacher', false);
+      });
+    });
+
+    
 
     this.activePage = this.file_pages[0];
 
@@ -97,7 +104,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, {title: page.title});
     this.activePage = page;
   }
 

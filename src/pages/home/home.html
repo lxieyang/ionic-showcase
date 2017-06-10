@@ -3,12 +3,140 @@
     <button ion-button menuToggle>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>Files</ion-title>
+
+    <ion-title>
+      {{ title }}
+    </ion-title>
+    
+    <ion-buttons end>
+      <button ion-button large (click)="searchTapped($event)">
+        <ion-icon name="search" color="dark"></ion-icon>
+      </button>
+      &nbsp;&nbsp;
+      <button ion-button large (click)="presentFileFilter()">
+        <ion-icon name="md-options" color="dark"></ion-icon>
+      </button>
+      &nbsp;&nbsp;
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>This page should present the files.</h3>
+<ion-content>
+  <!--<h3 padding>This page should present the files.</h3>-->
+
+
+  <!-- Real floating action button, fixed. It will not scroll with the content -->
+  <ion-fab right bottom>
+    <button ion-fab color="nesuku-logo-color1"><ion-icon name="md-add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="microphone"></ion-icon></button>
+
+      <button ion-fab><ion-icon name="document"></ion-icon></button>
+
+    </ion-fab-list>
+  </ion-fab>
 
   <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
+
+
+
+
+  <ion-list>
+    <ion-list-header>
+      This week
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let file of this_week_files">
+      <button ion-item (click)="fileTapped($event, file)" [class.unread-file]="checkUnread(file)">
+        <ion-icon name="{{ file.type }}" color="nesuku-logo-color1" item-start></ion-icon>
+        <h2>{{ file.name }}</h2>
+        <p>{{ file.lesson }} | {{ file.author }}</p>
+        <ion-icon *ngIf="file.is_like" name="ios-heart-outline" color="danger" item-end></ion-icon>
+      </button>
+      <ion-item-options side="left">
+        <button  *ngIf="!file.is_read" ion-button color="primary" icon-left>
+          <ion-icon name="eye"></ion-icon>
+          <span style="font-size: 0.9em;">Read</span>
+        </button>
+        <button *ngIf="file.is_read" ion-button color="primary" icon-left>
+          <ion-icon name="eye-off"></ion-icon>
+          <span style="font-size: 0.9em;">Unread</span>
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          <span style="font-size: 0.9em;">More</span>
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="share"></ion-icon>
+          <span style="font-size: 0.9em;">Share</span>
+        </button>
+        <button *ngIf="!file.is_like" ion-button color="danger" icon-left>
+          <ion-icon name="heart"></ion-icon>
+          <span style="font-size: 0.9em;">Like</span>
+        </button>
+        <button *ngIf="file.is_like" ion-button color="danger" icon-left>
+          <ion-icon name="heart-outline"></ion-icon>
+          <span style="font-size: 0.9em;">Unlike</span>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+
+
+  <ion-list>
+    <ion-list-header>
+      Earlier...
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let file of earlier_files">
+      <button ion-item (click)="fileTapped($event, file)" [class.unread-file]="checkUnread(file)">
+        <ion-icon name="{{ file.type }}" color="nesuku-logo-color1" item-start></ion-icon>
+        <h3>{{ file.name }}</h3>
+        <p>{{ file.lesson }} | {{ file.author }}</p>
+        <ion-icon *ngIf="file.is_like" name="ios-heart-outline" color="danger" item-end></ion-icon>
+      </button>
+      <ion-item-options side="left">
+        <button  *ngIf="!file.is_read" ion-button color="primary" icon-left>
+          <ion-icon name="eye"></ion-icon>
+          <span style="font-size: 0.9em;">Read</span>
+        </button>
+        <button *ngIf="file.is_read" ion-button color="primary" icon-left>
+          <ion-icon name="eye-off"></ion-icon>
+          <span style="font-size: 0.9em;">Unread</span>
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          <span style="font-size: 0.9em;">More</span>
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="share"></ion-icon>
+          <span style="font-size: 0.9em;">Share</span>
+        </button>
+        <button *ngIf="!file.is_like" ion-button color="danger" icon-left>
+          <ion-icon name="heart"></ion-icon>
+          <span style="font-size: 0.9em;">Like</span>
+        </button>
+        <button *ngIf="file.is_like" ion-button color="danger" icon-left>
+          <ion-icon name="heart-outline"></ion-icon>
+          <span style="font-size: 0.9em;">Unlike</span>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+
+
+
+
+
+  
+
 </ion-content>

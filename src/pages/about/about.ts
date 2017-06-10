@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams  } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { Storage } from '@ionic/storage';
@@ -13,14 +13,18 @@ import { EmailComposer } from '@ionic-native/email-composer';
 })
 export class AboutPage {
 
+  title: any;
+
   is_teacher: boolean;
   role: string = "Teacher";
 
   constructor(
     public navCtrl: NavController,
+    public navParams: NavParams,
     private iab: InAppBrowser,
     private emailComposer: EmailComposer,
     public storage: Storage) {
+      this.title = navParams.get('title');
       this.updateLoggedInRole();
   }
 
