@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      New file: {{ filename }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Name...</ion-label>
+      <ion-input type="text" [(ngModel)]="filename" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Content...</ion-label>
+      <ion-textarea rows="10" type="text" [(ngModel)]="content" ></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <button small ion-button block class="new-file-button" (click)="doSaveAlert()">Save</button>
+  <button small ion-button block class="new-file-button" color="secondary">Share</button>
+  <br>
+  <button small ion-button block class="new-file-button" color="danger" (click)="doDiscardAlert()">Discard</button>
+
+
+
+</ion-content>

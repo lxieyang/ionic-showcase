@@ -10,6 +10,7 @@ import { CardsPage } from '../pages/cards/cards';
 import { AboutPage } from './../pages/about/about';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { SettingsPage } from '../pages/settings/settings';
+import { FileEdit } from '../pages/file-edit/file-edit';
 import { Splash } from '../pages/splash/splash';
 
 import { UserData } from '../providers/user-data';
@@ -20,7 +21,7 @@ import { UserData } from '../providers/user-data';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;    // change !
+  rootPage: any = HomePage;    // change to 'HomePage'!
   activePage: any;
 
   // login:
@@ -37,7 +38,7 @@ export class MyApp {
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
-    modalCtrl: ModalController,
+    public modalCtrl: ModalController,
     public userData: UserData,
     private storage: Storage) {
 
@@ -67,7 +68,7 @@ export class MyApp {
       let splash = modalCtrl.create(Splash);
       splash.present();
 
-      this.openPage(this.file_pages[0]);
+      this.openPage(this.file_pages[0]);   // uncomment this!
 
       this.storage.ready().then(() => {
         // this.userData.setIsTeacher(false);

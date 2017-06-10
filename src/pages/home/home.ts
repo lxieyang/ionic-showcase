@@ -1,3 +1,4 @@
+import { FileEdit } from '../file-edit/file-edit';
 import { FileDetail } from '../file-detail/file-detail';
 import { FileFilter } from '../file-filter/file-filter';
 import { SearchDetail } from '../search-detail/search-detail';
@@ -175,6 +176,18 @@ export class HomePage {
 
   presentFileFilter() {
       let modal = this.modalCtrl.create(FileFilter);  //, this.excludeTracks);
+      modal.present();
+
+      modal.onWillDismiss((data: any[]) => {
+        if (data) {
+          // this.excludeTracks = data;
+          // this.updateSchedule();
+        }
+      });
+  }
+
+  presentNewFileModal() {
+      let modal = this.modalCtrl.create(FileEdit);  //, this.excludeTracks);
       modal.present();
 
       modal.onWillDismiss((data: any[]) => {

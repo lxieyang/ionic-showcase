@@ -10,6 +10,7 @@ import { AboutPage } from '../pages/about/about';
 import { SearchDetail } from '../pages/search-detail/search-detail';
 import { FileDetail } from '../pages/file-detail/file-detail';
 import { FileFilter } from '../pages/file-filter/file-filter';
+import { FileEdit } from '../pages/file-edit/file-edit';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { SettingsPage } from '../pages/settings/settings';
 import { Splash } from '../pages/splash/splash';
@@ -31,6 +32,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
     SearchDetail,
     FileDetail,
     FileFilter,
+    FileEdit,
     NotificationsPage,
     SettingsPage,
     Splash
@@ -49,6 +51,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
     SearchDetail,
     FileDetail,
     FileFilter,
+    FileEdit,
     NotificationsPage,
     SettingsPage,
     Splash
