@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { NavController, ActionSheetController, ModalController, NavParams, AlertController, ViewController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-file-edit',
-  templateUrl: 'file-edit.html'
+  selector: 'page-audio-edit',
+  templateUrl: 'audio-edit.html'
 })
-export class FileEdit {
+export class AudioEdit {
 
   // file: any;
   filename: any;
-  content: any;
+  is_recording: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -19,10 +19,13 @@ export class FileEdit {
     public modalCtrl: ModalController,
     public viewCtrl: ViewController) {
       // this.file = navParams.get('file');
-      
+      this.is_recording = false;
   }
 
   
+  toggleRecording() {
+    this.is_recording = !this.is_recording;
+  }
 
 
   doSaveAlert() {

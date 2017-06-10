@@ -11,6 +11,7 @@ import { AboutPage } from './../pages/about/about';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { SettingsPage } from '../pages/settings/settings';
 import { FileEdit } from '../pages/file-edit/file-edit';
+import { AudioEdit } from '../pages/audio-edit/audio-edit';
 import { Splash } from '../pages/splash/splash';
 
 import { UserData } from '../providers/user-data';

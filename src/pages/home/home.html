@@ -30,7 +30,7 @@
   <ion-fab right bottom>
     <button class="ion-fab-root-btn" ion-fab color="nesuku-logo-color1"><ion-icon name="md-add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button class="ion-fab-child-btn" ion-fab><ion-icon name="microphone"></ion-icon></button>
+      <button class="ion-fab-child-btn" ion-fab (click)="presentNewAudioModal()"><ion-icon name="microphone"></ion-icon></button>
 
       <button class="ion-fab-child-btn" ion-fab (click)="presentNewFileModal()"><ion-icon name="document"></ion-icon></button>
 

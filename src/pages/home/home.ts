@@ -1,3 +1,4 @@
+import { AudioEdit } from '../audio-edit/audio-edit';
 import { FileEdit } from '../file-edit/file-edit';
 import { FileDetail } from '../file-detail/file-detail';
 import { FileFilter } from '../file-filter/file-filter';
@@ -188,6 +189,18 @@ export class HomePage {
 
   presentNewFileModal() {
       let modal = this.modalCtrl.create(FileEdit);  //, this.excludeTracks);
+      modal.present();
+
+      modal.onWillDismiss((data: any[]) => {
+        if (data) {
+          // this.excludeTracks = data;
+          // this.updateSchedule();
+        }
+      });
+  }
+
+  presentNewAudioModal() {
+      let modal = this.modalCtrl.create(AudioEdit);  //, this.excludeTracks);
       modal.present();
 
       modal.onWillDismiss((data: any[]) => {

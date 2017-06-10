@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      New Audio file: {{ filename }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Name...</ion-label>
+      <ion-input type="text" [(ngModel)]="filename" ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-12>
+        <p style="text-align: center; font-size: 2.5em; font-weight: bold;">
+          00 : 00 : 00
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-4>
+        <button ion-button clear full color="danger" style="font-size: 2.5em;" (click)="toggleRecording()">
+          <ion-icon *ngIf="!is_recording" name="radio-button-on"></ion-icon>
+          <ion-icon *ngIf="is_recording" name="radio-button-off"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
+  
+  
+
+  <button small ion-button block class="new-file-button" (click)="doSaveAlert()">Save</button>
+  <button small ion-button block class="new-file-button" color="secondary">Share</button>
+  <br>
+  <button small ion-button block class="new-file-button" color="danger" (click)="doLeaveAlert()">Leave</button>
+
+
+
+</ion-content>
